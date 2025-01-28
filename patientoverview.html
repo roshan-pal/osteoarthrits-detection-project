@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .logout-btn {
+            padding: 8px 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .patient-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .patient-table th {
+            background: #1a4a5e;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .patient-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .patient-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .view-btn {
+            padding: 6px 12px;
+            background: #17a2b8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .patient-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-group {
+            margin-bottom: 15px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            min-height: 36px;
+        }
+
+        .photos-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .photo-label {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .additional-notes {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-title">SEE PATIENT</div>
+        <a href="#" class="logout-btn">Logout</a>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">VIEW PATIENT</h1>
+        
+        <table class="patient-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Symptoms</th>
+                    <th>Detection</th>
+                    <th>Username</th>
+                    <th>Solution</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Peter</td>
+                    <td>15</td>
+                    <td>Joint pain and stiffness</td>
+                    <td>peter123 has been detected with LOW condition</td>
+                    <td>peter123</td>
+                    <td>Accessories fitaces and wraps can help stabilize your knee</td>
+                    <td>
+                        <button class="view-btn" onclick="openModal()">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Modal -->
+    <div id="patientModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">PATIENT DETAILS</h2>
+            
+            <div class="patient-details">
+                <div class="detail-group">
+                    <div class="detail-label">Name</div>
+                    <div class="detail-value">Peter</div>
+                </div>
+                <div class="detail-group">
+                    <div class="detail-label">Age</div>
+                    <div class="detail-value">15</div>
+                </div>
+                <div class="detail-group">
+                    <div class="detail-label">Detection</div>
+                    <div class="detail-value">peter123 has been detected with LOW condition</div>
+                </div>
+                <div class="detail-group">
+                    <div class="detail-label">Username</div>
+                    <div class="detail-value">peter123</div>
+                </div>
+                <div class="detail-group" style="grid-column: 1 / -1;">
+                    <div class="detail-label">Solution</div>
+                    <div class="detail-value">Accessories fitaces and wraps can help stabilize your knee</div>
+                </div>
+            </div>
+
+            <div class="photos-section">
+                <div class="photo-container">
+                    <div class="photo-label">XRAY PHOTO</div>
+                    <div class="photo-frame">
+                        <img src="/api/placeholder/400/300" alt="X-Ray Photo">
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <div class="photo-label">YOUR PHOTO</div>
+                    <div class="photo-frame">
+                        <img src="/api/placeholder/400/300" alt="Patient Photo">
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <div class="photo-label">GUARDIAN PHOTO</div>
+                    <div class="photo-frame">
+                        <img src="/api/placeholder/400/300" alt="Guardian Photo">
+                    </div>
+                </div>
+                <div class="photo-container">
+                    <div class="photo-label">ID PHOTO</div>
+                    <div class="photo-frame">
+                        <img src="/api/placeholder/400/300" alt="ID Photo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional-notes">
+                <div class="detail-label">Additional Notes</div>
+                <textarea placeholder="Enter additional notes or suggestions here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('patientModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('patientModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('patientModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

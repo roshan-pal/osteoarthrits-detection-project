@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knee Osteoarthritis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background-color: white;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: #666;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .signup-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-content {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            background: linear-gradient(to right, #e6e9f0 0%, #eef1f5 100%);
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .text-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 50%;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            font-style: italic;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-top: 30px;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .knee-image {
+            height: 90%;
+            width: auto;
+            max-width: none;
+            object-fit: contain;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .text-section {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .image-container {
+                height: 50vh;
+            }
+
+            .knee-image {
+                height: 100%;
+                width: auto;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .quote {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#">Home</a>
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="signup-btn">Sign up</a>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="content-wrapper">
+            <section class="text-section">
+                <h1>Knee Osteoarthritis</h1>
+                <p class="quote">"Movement is the key to life. When we take care of our joints, we invest in our mobility, independence, and quality of life. Understanding and managing conditions like osteoarthritis isn't just about treating pain – it's about preserving our ability to move freely and live fully."</p>
+                <p class="quote-author">- Dr. Sarah Thompson</p>
+                <p class="description">
+                    Osteoarthritis of the knee is one of the most common forms of arthritis, affecting millions worldwide. It occurs when the protective cartilage that cushions the ends of your bones wears down over time. While it can be challenging, proper management and early intervention can help maintain mobility and reduce pain.
+                </p>
+            </section>
+            <div class="image-container">
+                <img src="images/istockphoto-1421002902-612x612-1.jpg" alt="Knee Osteoarthritis Illustration" class="knee-image">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

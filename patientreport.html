@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffcdd2, #e1bee7);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .patient-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .patient-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .section {
+            background-color: #f8f0fc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .stage-indicator {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .stage {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #9c27b0;
+        }
+        .stage.active {
+            background-color: #9c27b0;
+        }
+        h1 {
+            color: #6a1b9a;
+        }
+        h2 {
+            color: #8e24aa;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Patient Medical Report</h1>
+        </div>
+
+        <div class="patient-info">
+            <div>
+                <h2>Patient Information</h2>
+                <p><strong>Name:</strong> Roshan .R. Pal</p>
+                <p><strong>Address:</strong> Navi mumbai,Maharashtra</p>
+                <p><strong>Blood Group:</strong> o </p>
+                <p><strong>Phone Number:</strong> 8355948204</p>
+            </div>
+            <div>
+                <img src="images/photo.jpg" alt="Patient Photo" class="patient-photo">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Disease Information</h2>
+            <p><strong>Disease Name:</strong> knee osteoarthritis</p>
+            <p><strong>Stage:</strong></p>
+            <div class="stage-indicator">
+                <div class="stage active" title="Stage 1"></div>
+                <div class="stage active" title="Stage 2"></div>
+                <div class="stage" title="Stage 3"></div>
+                <div class="stage" title="Stage 4"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Activity Restrictions</h2>
+            <ul>
+                <li>Dont jump </li>
+                <li>dont walk too much</li>
+                <li>dont bend</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Medicine Recommendations</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Medicine</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Dosage</th>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Timing</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Medicine 1]</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Dosage 1]</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Timing 1]</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Medicine 2]</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Dosage 2]</td>
+                    <td style="border: 1px solid #ddd; padding: 8px;">[Timing 2]</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0ffe0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #98c598;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header img {
+            height: 50px;
+        }
+
+        .header button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #45a049;
+        }
+
+        .form-container {
+            margin: 20px auto;
+            padding: 30px;
+            max-width: 3000px; /* Increased width */
+            background-color: #ccffcc; /* Lighter green background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #004d00;
+            font-size: 28px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #004d00;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input {
+            padding: 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            background-color: #f9fff9;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .form-group-button {
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .form-group-button button {
+            padding: 15px 40px;
+            background-color: #4CAF50;
+            font-size: 18px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .form-group-button button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/240_F_763045281_WVjQeZYu07LahGuZlcPLceOYGprlLpPV.jpg" alt="Hospital Logo">
+        <button>View My Report</button>
+    </div>
+    <div class="form-container">
+        <h2>Patient Details</h2>
+        <form class="form-grid">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age">
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="blood-group">Blood Group:</label>
+                <input type="text" id="blood-group" name="blood-group">
+            </div>
+            <div class="form-group">
+                <label for="history">Any Previous History?</label>
+                <input type="text" id="history" name="history">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="guardian-photo">Guardian Photo:</label>
+                <input type="file" id="guardian-photo" name="guardian-photo">
+            </div>
+            <div class="form-group">
+                <label for="xray-photo">X-Ray Photo:</label>
+                <input type="file" id="xray-photo" name="xray-photo">
+            </div>
+            <div class="form-group">
+                <label for="your-photo">Your Photo:</label>
+                <input type="file" id="your-photo" name="your-photo">
+            </div>
+            <div class="form-group">
+                <label for="id-photo">ID Photo:</label>
+                <input type="file" id="id-photo" name="id-photo">
+            </div>
+            <div class="form-group">
+                <label for="licence-photo">Licence Photo:</label>
+                <input type="file" id="licence-photo" name="licence-photo">
+            </div>
+            <div class="form-group-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
